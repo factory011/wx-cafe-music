@@ -130,12 +130,22 @@ text-overflow: ellipsis;
   border-radius: 20rpx;
   font-size: 28rpx;
   padding: 0 20rpx 0 80rpx;
+	color: #fff;
 }
 
 .search-icon {
   position: absolute;
   left: 30rpx;
   top: 20rpx;
+}
+
+.iconfont.iconquxiao {
+	color: #fff;
+	font-size: 40rpx;
+	position: absolute;
+	right: 30rpx;
+	top: 12rpx;
+	z-index: 99;
 }
 
 .hot-search {
@@ -158,6 +168,13 @@ text-overflow: ellipsis;
   background: #333;
   float: left;
   display: block;
+}
+
+.search-result {
+	color: hsla(0,0%,100%,.3);
+	font-size: 40rpx;
+	padding-left: 66rpx;
+	line-height: 60rpx;
 }
 
 /* ==================================song====================================== */

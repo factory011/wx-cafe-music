@@ -2,13 +2,17 @@
 	<view class='search'>
 		<view class='search-wrap'>
 			<icon class='search-icon' type='search'></icon>
-			<input placeholder='搜索歌曲、歌手'></input>
+			<input placeholder='搜索歌曲、歌手' bindinput='search' value='{{searchInfo}}'></input>
+			<icon class='iconfont iconquxiao' bindtap='clearSearch'></icon>
 		</view>
 	</view>
-	<view class='hot-search'>
+	<view class='hot-search' hidden='{{isHotKeyHidden}}'>
 		<text>热门搜索</text>
 		<view class='hot-group'>
 			<view class='hot-item' wx:for='{{hotkeyList}}' wx:key='{{index}}'>{{item.k}}</view>
 		</view>
+	</view>
+	<view class='search-result' hidden='{{!isHotKeyHidden}}' wx:for='{{searchList}}' wx:key='{{index}}'>
+		<view class='search-list' data-songindex='{{item.id}}' bindtap='searchPlay'>{{item.name}}</view>
 	</view>
 </template>

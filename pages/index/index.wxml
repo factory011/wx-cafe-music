@@ -38,7 +38,7 @@
 	</swiper-item>
 	<swiper-item>
 	<view>
-		<template is='search' data='{{hotkeyList: hotkeyList}}'/>
+		<template is='search' data='{{hotkeyList: hotkeyList, searchInfo: searchInfo, isHotKeyHidden: isHotKeyHidden, searchList: searchList}}'/>
 	</view>
 	</swiper-item>
 </swiper>

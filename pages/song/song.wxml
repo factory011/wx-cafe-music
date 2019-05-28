@@ -10,8 +10,8 @@
 			</view>
 			<view class='bg-image-content'></view>
 			<view class='song-list-wrap'>
-				<view class='song-list' wx:for='{{item.songlist}}' wx:for-item='group' wx:key='{{index}}' bindtap='songPlay'>
-					<view class='name'>{{group.songname}}</view>
+				<view class='song-list' wx:for='{{item.songlist}}' wx:for-item='group' wx:key='{{index}}' data-songIndex='{{index}}' bindtap='songPlay'>
+					<view class='name'>{{group.songorig}}</view>
 					<view class='desc'>{{group.singer[0].name}}</view>
 				</view>
 			</view>

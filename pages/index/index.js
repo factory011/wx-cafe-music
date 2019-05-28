@@ -31,7 +31,32 @@ Page({
 		// 播放器歌曲信息
 		cdList: [],
 		// 是否隐藏歌曲页面
-		isSongHidden: app.globalData.isSongHidden
+		isSongHidden: app.globalData.isSongHidden,
+		// 搜索信息
+		searchInfo: '',
+		// 是否隐藏热门搜索
+		isHotKeyHidden: false,
+		// 搜索到的数据列表
+		searchList: [
+			{ name: '人来人往', id: 0 },
+			{ name: '喜帖街', id: 1 },
+			{ name: '成全', id: 2 },
+			{ name: 'Dont cry Don cry', id: 3 },
+			{ name: '可惜我是水瓶座', id: 4 },
+			{ name: '他不准我哭', id: 5 },
+			{ name: '够钟', id: 6 },
+			{ name: '谎话情歌', id: 7 },
+			{ name: '爱与诚', id: 8 },
+			{ name: '爱笑的眼睛', id: 9 },
+			{ name: '频率', id: 10 },
+			{ name: '还你门匙', id: 11 },
+			{ name: '爱情', id: 12 },
+			{ name: '我真的受伤了', id: 13 },
+			{ name: '与我常在', id: 14 },
+			{ name: '断点', id: 15 },
+			{ name: '痛爱', id: 16 },
+			{ name: '好心分手', id:17}
+			]
   },
 	// 获取tab信息
 	bindchange: navbar.bindchange,
@@ -135,6 +160,7 @@ Page({
 	},
 	// 监听播放歌曲索引的回调函数
 	watchIndex: function (index) {
+		this.setData({ cdInfo: this.data.cdList[0].songlist[app.globalData.index] })
 		console.log('index回调=>' + index)
 	},
 	// 返回前一页
@@ -144,14 +170,37 @@ Page({
 	},
 	// 点击歌曲播放
 	songPlay: function (e) {
+		var songIndex = e.currentTarget.dataset.songindex || 0
 		app.globalData.isPlayHidden = false
-		app.globalData.cdInfo = this.data.cdList[0]
+		app.globalData.cdInfo = this.data.cdList[0].songlist[songIndex]
 		app.globalData.playFlag = true
-		app.globalData.index = 0
+		app.globalData.index = songIndex
 		this.data.isPlayHidden = false
-		this.setData({ isPlayHidden: this.data.isPlayHidden, cdInfo: this.data.cdList[0] })
+		this.setData({ isPlayHidden: this.data.isPlayHidden, cdInfo: this.data.cdList[0].songlist[songIndex] })
 		app.setAudioPlay()
-		console.log('点击歌曲，data数据为=>', this.data, '全局app数据为=>', app)
+		console.log('点击歌曲，data数据为=>', this.data, '全局app数据为=>', app, 'e的数据=>', e)
+	},
+	// 搜索功能
+	search: function(e) {
+		this.setData({ searchInfo: e.detail.value})
+		if (this.data.searchInfo.length > 0) {
+			this.setData({ isHotKeyHidden: true})
+		} else {
+			this.setData({ isHotKeyHidden: false })
+		}
+		var _searchList = this.data.searchList.filter(item => {
+			return item.name.indexOf(this.data.searchInfo) > -1
+		})
+		this.setData({searchList: _searchList})
+		console.log('查询列表=>', this.data.searchInfo, typeof this.data.searchInfo, _searchList)
+	},
+	clearSearch: function (e) {
+		this.setData({ searchInfo: '' })
+		this.setData({ isHotKeyHidden: false })
+	},
+	searchPlay: function (e) {
+		this.songPlay(e)
+		console.log(e.currentTarget.dataset.songindex)
 	},
 
 	// 歌手-歌手数据处理

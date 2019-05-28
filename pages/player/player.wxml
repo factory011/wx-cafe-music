@@ -1,9 +1,9 @@
 <template name='player'>
 	<view class='play-wrap' hidden='{{isPlayHidden}}'>
 		<view class='play-left'>
-			<image src='{{cdInfo.ifpicurl}}'></image>
-			<view class='name'>是风动</view>
-			<view class='desc'>思南</view>
+			<image src='https://y.gtimg.cn/music/photo_new/T002R300x300M000{{cdInfo.albummid == undefind ? "003T9GgA48vGRj" : cdInfo.albummid}}.jpg?max_age=2592000'></image>
+			<view class='name'>{{cdInfo.songorig}}</view>
+			<view class='desc'>{{cdInfo.singer[0].name}}</view>
 		</view>
 		<view class='play-right'>
 			<span class='iconfont iconhoutui' bindtap='previous'></span>
