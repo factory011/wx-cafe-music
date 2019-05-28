@@ -1,0 +1,15 @@
+<template name='rank'>
+	<black wx:for='{{rankList}}' wx:key='{{index}}'>
+		<view class='rank-list' bindtap='getDiscDetail'>
+			<view class='rank-left'>
+				<image src='{{item.picUrl}}'></image>
+			</view>
+			<view class='rank-right'>
+				<black wx:for='{{item.songList}}' wx:for-item='group' wx:key='{{index}}'>
+					<view class='rank-song text'>{{index + 1 + ' '}}{{group.songname}}</view>
+				</black>
+			</view>
+		</view>
+	</black>
+</template>
+

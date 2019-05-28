@@ -1,0 +1,14 @@
+<template name='player'>
+	<view class='play-wrap' hidden='{{isPlayHidden}}'>
+		<view class='play-left'>
+			<image src='{{cdInfo.ifpicurl}}'></image>
+			<view class='name'>是风动</view>
+			<view class='desc'>思南</view>
+		</view>
+		<view class='play-right'>
+			<span class='iconfont iconhoutui' bindtap='previous'></span>
+			<span class='iconfont {{playFlag == true ? "iconai05" : "iconbofang"}}' bindtap='audioPlay'></span>
+			<span class='iconfont iconqianjin' bindtap='next'></span>
+		</view>
+	</view>
+</template>

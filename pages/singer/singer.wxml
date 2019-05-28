@@ -1,0 +1,16 @@
+<template name='singer'>
+	<black wx:for='{{singerList}}' wx:key='{{index}}'>
+		<view class='singer-info'>
+			<view class='singer-title'>{{item.title}}</view>
+			<black wx:for='{{item.items}}' wx:for-item='group' wx:key='{{index}}'>
+				<view class='singer-list' bindtap='getDiscDetail'>
+					<view class='singer-icon'>
+						<image src='https://y.gtimg.cn/music/photo_new/T001R300x300M000{{group.id.id}}.jpg?max_age=2592000'>{{group.id.id}}</image>
+					</view>
+					<view class='singer-name'>{{group.id.name}}</view>
+				</view>
+			</black>
+		</view> 
+	</black>
+</template>
+

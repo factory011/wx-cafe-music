@@ -1,0 +1,14 @@
+<template name='search'>
+	<view class='search'>
+		<view class='search-wrap'>
+			<icon class='search-icon' type='search'></icon>
+			<input placeholder='搜索歌曲、歌手'></input>
+		</view>
+	</view>
+	<view class='hot-search'>
+		<text>热门搜索</text>
+		<view class='hot-group'>
+			<view class='hot-item' wx:for='{{hotkeyList}}' wx:key='{{index}}'>{{item.k}}</view>
+		</view>
+	</view>
+</template>

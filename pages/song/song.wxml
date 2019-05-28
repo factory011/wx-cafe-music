@@ -1,0 +1,20 @@
+<template name='song'>
+	<view class='view-wrap' hidden='{{isSongHidden}}'>
+		<view class='icon-back' bindtap='goback'>
+			<span class='iconfont iconzuojiantou'></span>
+		</view>
+		<view class='song' wx:for='{{cdList}}' wx:key='{{index}}'>
+			<text class='song-title'>{{item.dissname}}</text>
+			<view class='bg-image'>
+				<image src='{{item.logo}}'></image>
+			</view>
+			<view class='bg-image-content'></view>
+			<view class='song-list-wrap'>
+				<view class='song-list' wx:for='{{item.songlist}}' wx:for-item='group' wx:key='{{index}}' bindtap='songPlay'>
+					<view class='name'>{{group.songname}}</view>
+					<view class='desc'>{{group.singer[0].name}}</view>
+				</view>
+			</view>
+		</view>
+	</view>
+</template>

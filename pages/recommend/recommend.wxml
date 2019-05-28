@@ -1,0 +1,19 @@
+<template name='recommend'> 
+	<swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">
+		<block wx:for="{{sliderList}}" wx:key="{{index}}">
+			<swiper-item> 
+					<image src="{{item.picUrl}}" class="slide-image"/> 
+			</swiper-item> 
+		</block> 
+	</swiper>
+	<view class='list-title'>热门歌单推荐</view>
+	<view class='disc-list' wx:for="{{discList}}" wx:key="{{index}}" bindtap='getDiscDetail'>
+		<view class='disc-left'>
+			<image src='{{item.imgurl}}'></image>
+		</view>
+		<view class='disc-right'>
+			<view>{{item.creator.name}}</view> 
+			<view>{{item.dissname}}</view> 
+		</view>
+	</view>
+</template>

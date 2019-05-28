@@ -1,0 +1,18 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/song/song",
+    "pages/recommend/recommend",
+    "pages/singer/singer",
+    "pages/rank/rank",
+    "pages/search/search",
+    "pages/player/player"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Cafe Music",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

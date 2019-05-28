@@ -1,0 +1,47 @@
+<import src='../recommend/recommend.wxml' />
+<import src='../singer/singer.wxml' />
+<import src='../rank/rank.wxml' />
+<import src='../search/search.wxml' />
+<import src='../player/player.wxml' />
+<import src='../song/song.wxml' />
+<view class='wrap' hidden='{{!isSongHidden}}'>
+	<view class='header'>
+	<view class='item'>
+	<text data-num="0" class="{{_num=='0'?'active':''}}"  bindtap='checkCurrent'>推荐</text>
+	</view>
+	<view class='item'>
+	<text data-num="1" class="{{_num=='1'?'active':''}}"  bindtap='checkCurrent'>歌手</text>
+	</view>
+	<view class='item'>
+	<text data-num="2" class="{{_num=='2'?'active':''}}"  bindtap='checkCurrent'>排行</text>
+	</view>
+	<view class='item'>
+	<text data-num="3" class="{{_num=='3'?'active':''}}"  bindtap='checkCurrent'>搜索</text>
+	</view>
+</view>
+<view class='header-content'></view>
+<swiper current="{{_num}}" class='swiper' style='height: 2610px' bindchange="bindchange">
+	<swiper-item>
+		<view>
+			<template is='recommend' data='{{sliderList: sliderList, discList: discList, mode: mode, indicatorDots: indicatorDots, autoplay: autoplay, interval: interval, duration: duration}}'/>
+		</view>
+	</swiper-item>
+	<swiper-item>
+		<view>
+		<template is='singer' data='{{singerList: singerList}}'/>
+		</view>
+	</swiper-item>
+	<swiper-item>
+		<view>
+			<template is='rank' data='{{rankList: rankList}}'/>
+		</view>
+	</swiper-item>
+	<swiper-item>
+	<view>
+		<template is='search' data='{{hotkeyList: hotkeyList}}'/>
+	</view>
+	</swiper-item>
+</swiper>
+</view>
+<template is='song' data='{{cdList: cdList, isSongHidden: isSongHidden}}'></template> 
+<template is='player' data='{{cdInfo: cdInfo, playFlag: playFlag, isPlayHidden: isPlayHidden }}'></template> 
